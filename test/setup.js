@@ -1,6 +1,3 @@
-// 设置测试环境
-import '@babel/preset-env';
-
 // 模拟浏览器环境
 global.window = {
   document: {

@@ -162,19 +162,11 @@ ArchiMate® 是 [The Open Group](https://www.opengroup.org/archimate-forum/archi
    ```
 
 2. **运行测试**
-   ```bash
-   # 运行所有测试
-   npm test
 
-   # 监视模式（在开发时很有用）
-   npm run test:watch
-
-   # 生成测试覆盖率报告
-   npm run test:coverage
-
-   # 在 CI 环境中运行测试
-   npm run test:ci
-   ```
+开发模式：npm start
+构建项目：npm run build
+预览构建结果：npm run preview
+测试命令：npm run test
 
 3. **测试目录结构**
    ```
