@@ -99,27 +99,36 @@ ArchiMate® 是 [The Open Group](https://www.opengroup.org/archimate-forum/archi
 
 ```
 .
-├── .git/                     # Git 版本控制文件
-├── assets/                   # 静态资源，如 CSS
-├── archimate-font/           # ArchiMate 图标字体
-├── lib/                      # 核心源代码目录
-│   ├── core/                 # 核心模块
-│   ├── draw/                 # 绘图相关逻辑
-│   ├── features/             # 各功能模块 (如 palette, context-pad, modeling, rules 等)
-│   ├── import/               # 导入逻辑
-│   ├── metamodel/            # ArchiMate 元模型定义
-│   ├── moddle/               # moddle 相关配置
-│   ├── util/                 # 工具函数
-│   ├── BaseModeler.js        # 建模器基础类
-│   ├── BaseViewer.js         # 查看器基础类
-│   ├── Modeler.js            # 核心建模器
-│   ├── NavigatedViewer.js    # 导航查看器
-│   └── Viewer.js             # 核心查看器
-├── package.json              # 项目依赖和脚本配置
-├── README.md                 # 项目说明文档
-├── CHANGELOG.md              # 变更日志
-├── LICENSE                   # 许可证信息
-└── index.js                  # 项目入口文件 (可能仅用于打包)
+├── .yarn/                   # Yarn 4+ 相关目录
+├── assets/                  # 静态资源，如 CSS、图标等
+├── archimate-font/          # ArchiMate 图标字体及其源码
+├── dist/                    # 构建输出目录
+├── lib/                     # 核心源代码目录
+│   ├── core/                # 核心模块
+│   ├── draw/                # 绘图相关逻辑
+│   ├── features/            # 功能模块（palette, context-pad, modeling, rules 等）
+│   ├── import/              # 导入逻辑
+│   ├── metamodel/           # ArchiMate 元模型定义
+│   ├── moddle/              # moddle 相关配置
+│   ├── util/                # 工具函数
+│   ├── BaseModeler.js       # 建模器基础类
+│   ├── BaseViewer.js        # 查看器基础类
+│   ├── Modeler.js           # 核心建模器
+│   ├── NavigatedViewer.js   # 导航查看器
+│   └── Viewer.js            # 核心查看器
+├── test/                    # 测试相关目录
+│   ├── __mocks__/           # 测试 mock 文件
+│   ├── setup.js             # 测试环境配置
+│   └── unit/                # 单元测试
+├── demo.html                # 项目演示入口页面
+├── example.archimate        # 示例模型文件
+├── index.js                 # 项目入口文件
+├── package.json             # 项目依赖和脚本配置
+├── vite.config.js           # Vite 配置文件
+├── README.md                # 项目说明文档
+├── CHANGELOG.md             # 变更日志
+├── LICENSE                  # 许可证信息
+└── ...                      # 其他配置文件
 ```
 
 ## 潜在问题与改进方向
@@ -158,15 +167,31 @@ ArchiMate® 是 [The Open Group](https://www.opengroup.org/archimate-forum/archi
 
 1. **安装依赖**
    ```bash
-   npm install
+   PUPPETEER_SKIP_DOWNLOAD=true yarn install
    ```
 
-2. **运行测试**
+2. **常用命令**
 
-开发模式：npm start
-构建项目：npm run build
-预览构建结果：npm run preview
-测试命令：npm run test
+   - 启动开发模式：
+     ```bash
+     yarn start
+     ```
+   - 构建项目：
+     ```bash
+     yarn build
+     ```
+   - 预览构建结果：
+     ```bash
+     yarn preview
+     ```
+   - 运行测试：
+     ```bash
+     yarn test
+     ```
+   - 生成测试覆盖率报告：
+     ```bash
+     yarn test:coverage
+     ```
 
 3. **测试目录结构**
    ```
@@ -184,6 +209,6 @@ ArchiMate® 是 [The Open Group](https://www.opengroup.org/archimate-forum/archi
    - 使用 `beforeEach` 和 `afterEach` 设置和清理测试环境
 
 5. **测试覆盖率**
-   - 运行 `npm run test:coverage` 生成覆盖率报告
+   - 运行 `yarn test:coverage` 生成覆盖率报告
    - 覆盖率报告将显示在 `coverage/` 目录下
    - 建议保持至少 80% 的测试覆盖率
