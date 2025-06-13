@@ -163,7 +163,7 @@ ArchiMate® 是 [The Open Group](https://www.opengroup.org/archimate-forum/archi
 
 ## 测试
 
-项目使用 Jest 作为测试框架。要运行测试，请按照以下步骤操作：
+项目使用 Jest 作为测试框架，并使用 Babel 进行代码转译。要运行测试，请按照以下步骤操作：
 
 1. **安装依赖**
    ```bash
@@ -193,7 +193,17 @@ ArchiMate® 是 [The Open Group](https://www.opengroup.org/archimate-forum/archi
      yarn test:coverage
      ```
 
-3. **测试目录结构**
+3. **测试架构**
+   - **Jest**: 作为主要的测试框架
+     - 提供测试运行环境
+     - 处理测试用例的执行
+     - 生成测试报告和覆盖率报告
+   - **Babel**: 作为代码转译工具
+     - 通过 `babel-jest` 转译测试文件
+     - 确保代码在不同环境中的兼容性
+     - 支持现代 JavaScript 特性
+
+4. **测试目录结构**
    ```
    test/
    ├── __mocks__/          # 模拟文件
@@ -202,16 +212,21 @@ ArchiMate® 是 [The Open Group](https://www.opengroup.org/archimate-forum/archi
        └── Modeler.test.js # Modeler 类的测试用例
    ```
 
-4. **编写测试**
+5. **编写测试**
    - 所有测试文件都应该放在 `test/unit/` 目录下
    - 测试文件命名应该遵循 `*.test.js` 模式
    - 使用 Jest 的 `describe` 和 `it` 函数组织测试用例
    - 使用 `beforeEach` 和 `afterEach` 设置和清理测试环境
 
-5. **测试覆盖率**
+6. **测试覆盖率**
    - 运行 `yarn test:coverage` 生成覆盖率报告
    - 覆盖率报告将显示在 `coverage/` 目录下
    - 建议保持至少 80% 的测试覆盖率
+
+7. **测试环境配置**
+   - `jest.setup.js`: 设置全局测试环境变量和模拟浏览器环境
+   - `babel.config.js`: 配置 Babel 转译选项
+   - Jest 配置在 `package.json` 的 `jest` 字段中
 
 ## 优化建议
 
